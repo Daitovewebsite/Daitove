@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Host - Daitove</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Become a Host</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="find-accommodation.html">Find Accommodation</a></li>
+                <li><a href="become-a-host.html">Become a Host</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="hostForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" aria-label="Your name" required>
+            <label for="region">Region:</label>
+            <select id="region" name="region" required>
+                <option value="tbilisi">Tbilisi</option>
+                <option value="kutaisi">Kutaisi</option>
+            </select>
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" aria-label="Accommodation details" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <script>
+        document.getElementById("hostForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const region = document.getElementById("region").value;
+            const details = document.getElementById("details").value;
+
+            const accommodations = JSON.parse(localStorage.getItem("accommodations")) || [];
+            accommodations.push({ name, region, details });
+            localStorage.setItem("accommodations", JSON.stringify(accommodations));
+
+            alert("Thank you for registering as a host!");
+            this.reset();
+        });
+        </script>
+    </main>
+    <footer>
+        <p>&copy; 2024 Daitove. All rights reserved.</p>
+    </footer>
+</body>
+</html>

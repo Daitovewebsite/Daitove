@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Accommodation - Daitove</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Find Accommodation</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="find-accommodation.html">Find Accommodation</a></li>
+                <li><a href="become-a-host.html">Become a Host</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Search for Accommodation</h2>
+            <form id="searchForm">
+                <label for="region">Region:</label>
+                <select id="region" name="region" aria-label="Select a region">
+                    <option value="all">All Regions</option>
+                    <option value="tbilisi">Tbilisi</option>
+                    <option value="kutaisi">Kutaisi</option>
+                </select>
+                <button type="button" onclick="filterListings()">Search</button>
+            </form>
+            <div id="accommodationList" aria-live="polite">
+                <!-- Dynamic listings populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Daitove. All rights reserved.</p>
+    </footer>
+</body>
+</html>
